@@ -1,0 +1,170 @@
+body {
+    font-family: 'Malgun Gothic', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.cbt-container {
+    background-color: white;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #0052a4; /* 철도 느낌의 블루톤 */
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.category-badge {
+    background-color: #e0e0e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.question-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.options-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.options-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.options-list li:hover {
+    background-color: #e3f2fd;
+}
+
+.options-list li.selected {
+    background-color: #bbdefb;
+    border-color: #2196f3;
+    font-weight: bold;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #0052a4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#submit-btn {
+    background-color: #d32f2f;
+}
+
+/* --- 오답노트 스타일 --- */
+.result-buttons {
+    margin-top: 20px;
+}
+
+#review-btn {
+    background-color: #ff9800; /* 오렌지색으로 포인트 */
+    margin-right: 10px;
+}
+
+#review-area {
+    margin-top: 30px;
+    text-align: left;
+    border-top: 2px dashed #ccc;
+    padding-top: 20px;
+}
+
+.review-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-item {
+    background-color: #fff3f3;
+    border: 1px solid #ffcdd2;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.review-question {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.review-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.95rem;
+}
+
+.user-wrong {
+    color: #d32f2f;
+    text-decoration: line-through; /* 틀린 답안에 취소선 */
+}
+
+.user-none {
+    color: #757575;
+    font-style: italic;
+}
+
+.correct-answer {
+    color: #2e7d32; /* 정답은 초록색으로 강조 */
+    font-weight: bold;
+}

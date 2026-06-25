@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>철도교통안전관리자 모의시험 CBT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cbt-container">
+        <header>
+            <h1>철도교통안전관리자 모의시험</h1>
+            <div class="timer" id="timer">남은 시간: 50:00</div>
+        </header>
+        
+        <main id="exam-area">
+            <div class="question-header">
+                <span id="question-number">문제 1 / 50</span>
+            </div>
+            <div id="question-text" class="question-text">
+                문제가 여기에 표시됩니다.
+            </div>
+            <ul id="options-list" class="options-list">
+                </ul>
+        </main>
+
+        <footer>
+            <button id="prev-btn" disabled>이전 문제</button>
+            <button id="next-btn">다음 문제</button>
+            <button id="submit-btn" style="display: none;">최종 제출</button>
+        </footer>
+        
+<div id="result-area" style="display: none;">
+            <h2>시험 종료</h2>
+            <p id="score-display"></p>
+            
+            <div class="result-buttons">
+                <button id="review-btn">오답노트 보기</button>
+                <button onclick="location.reload()">다시 응시하기</button>
+            </div>
+            
+            <div id="review-area" style="display: none;">
+                <h3>오답노트</h3>
+                <ul id="review-list" class="review-list">
+                    </ul>
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
