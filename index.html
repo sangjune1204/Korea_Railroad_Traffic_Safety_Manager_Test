@@ -3,48 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>철도교통안전관리자 모의시험 CBT</title>
+    <title>철도교통안전관리자 모의시험</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="cbt-container">
-        <header>
-            <h1>철도교통안전관리자 모의시험</h1>
-            <div class="timer" id="timer">남은 시간: 50:00</div>
-        </header>
-        
-        <main id="exam-area">
-            <div class="question-header">
-                <span id="question-number">문제 1 / 50</span>
-            </div>
-            <div id="question-text" class="question-text">
-                문제가 여기에 표시됩니다.
-            </div>
-            <ul id="options-list" class="options-list">
-                </ul>
-        </main>
 
-        <footer>
-            <button id="prev-btn" disabled>이전 문제</button>
-            <button id="next-btn">다음 문제</button>
-            <button id="submit-btn" style="display: none;">최종 제출</button>
-        </footer>
+    <div class="cbt-container">
         
-<div id="result-area" style="display: none;">
-            <h2>시험 종료</h2>
-            <p id="score-display"></p>
+        <!-- ================= 1. 통합 대기 화면 ================= -->
+        <div id="main-start-screen" class="start-screen">
+            <h2>철도교통안전관리자 통합 모의시험</h2>
+            <div class="exam-info">
+                <p style="font-weight: bold; margin-bottom: 20px; color: #333;">본 시험은 1교시와 2교시로 나뉘어 진행됩니다.</p>
+                
+                <h3 style="color: #0052a4; margin-bottom: 10px;">1교시</h3>
+                <ul>
+                    <li>교통법규 (50문항)</li>
+                </ul>
+
+                <div style="margin-top: 15px; padding: 8px 12px; background-color: #f4f8fb; border-left: 3px solid #90caf9; border-radius: 4px;">
+                    <strong style="color: #0052a4; font-size: 1.05rem;">총 50문항, 50분</strong>
+                </div>
+                
+                <h3 style="color: #0052a4; margin-top: 20px; margin-bottom: 10px;">2교시</h3>
+                <ul>
+                    <li>교통안전관리론 (25문항)</li>
+                    <li>철도공학 (25문항)</li>
+                    <li>열차 운전 (25문항)</li>
+                </ul>
+                
+                <div style="margin-top: 15px; padding: 8px 12px; background-color: #f4f8fb; border-left: 3px solid #90caf9; border-radius: 4px;">
+                    <strong style="color: #0052a4; font-size: 1.05rem;">총 75문항, 75분</strong>
+                </div>
+
+                <p class="warning-text">※ 아래 버튼을 누르면 1교시 대기 화면으로 이동합니다.</p>
+            </div>
+            <button id="go-to-p1-btn" class="start-btn">시험장 입장하기</button>
+        </div>
+
+        <!-- ================= 2. 1교시 대기 화면 ================= -->
+        <div id="p1-start-screen" class="start-screen" style="display: none;">
+            <h2>[1교시] 교통법규 모의시험</h2>
+            <div class="exam-info">
+                <ul>
+                    <li><strong>과목:</strong> 교통안전법, 철도산업발전기본법, 철도안전법</li>
+                    <li><strong>문항/시간:</strong> 총 50문항 / 50분</li>
+                </ul>
+                <p class="warning-text">※ 준비가 완료되면 아래 버튼을 눌러주세요. 즉시 1교시가 시작됩니다.</p>
+            </div>
+            <button id="start-p1-btn" class="start-btn">1교시 시작하기</button>
+        </div>
+
+        <!-- ================= 3. 2교시 대기 화면 ================= -->
+        <div id="p2-start-screen" class="start-screen" style="display: none;">
+            <h2>[2교시] 관리론 / 공학 / 운전</h2>
+            <div class="exam-info">
+                <ul>
+                    <li><strong>과목:</strong> 교통안전관리론(25문항), 철도공학(25문항), 열차운전(25문항)</li>
+                    <li><strong>문항/시간:</strong> 총 75문항 / 75분</li>
+                </ul>
+                <p class="warning-text">※ 휴식이 끝난 후 준비가 완료되면 버튼을 눌러 2교시를 시작해주세요.</p>
+            </div>
+            <button id="start-p2-btn" class="start-btn">2교시 시작하기</button>
+        </div>
+
+        <!-- ================= 4. 공통 시험 영역 ================= -->
+        <header id="exam-header" style="display: none;">
+            <h1 id="exam-title">철도교통안전관리자 모의시험</h1>
+            <div class="timer" id="timer">남은 시간: --:--</div>
+        </header>
+
+        <div class="content-wrapper" id="exam-wrapper" style="display: none;">
+            
+            <main id="exam-main-area">
+                <div class="question-header">
+                    <span id="question-number">문제 -- / --</span>
+                </div>
+                <div id="question-text" class="question-text">
+                    문제가 여기에 표시됩니다.
+                </div>
+                <ul id="options-list" class="options-list">
+                    <!-- 보기가 자바스크립트를 통해 여기에 생성됩니다 -->
+                </ul>
+
+                <footer>
+                    <button id="prev-btn" disabled>이전 문제</button>
+                    <button id="next-btn">다음 문제</button>
+                    <button id="submit-btn" style="display: none;">최종 제출</button>
+                </footer>
+            </main>
+
+            <aside id="omr-area">
+                <h3>답안표기란 (OMR)</h3>
+                <div id="omr-grid" class="omr-grid">
+                    <!-- 자바스크립트로 문제 버튼들이 생성됩니다 -->
+                </div>
+                
+                <div class="omr-pagination">
+                    <button id="omr-prev-btn" class="omr-page-btn">◀ 이전</button>
+                    <span id="omr-page-info" class="omr-page-info">- / -</span>
+                    <button id="omr-next-btn" class="omr-page-btn">다음 ▶</button>
+                </div>
+            </aside>
+        </div>
+        <!-- ================= 5. 결과 및 오답노트 영역 ================= -->
+        <div id="result-area" style="display: none; text-align: center;">
+            <h2 id="result-title">시험 종료</h2>
+            <div id="score-display"></div>
             
             <div class="result-buttons">
-                <button id="review-btn">오답노트 보기</button>
-                <button onclick="location.reload()">다시 응시하기</button>
+                <!-- 1교시 종료 후 나타날 버튼 -->
+                <button id="next-stage-btn" style="display: none; background-color: #2e7d32; color: white;">2교시 준비하기</button>
+                
+                <!-- 2교시(최종) 종료 후 나타날 버튼들 -->
+                <button id="review-btn" style="display: none;">오답노트 보기</button>
+                <button id="retry-btn" style="display: none;" onclick="location.reload()">처음부터 다시 응시하기</button>
             </div>
             
             <div id="review-area" style="display: none;">
-                <h3>오답노트</h3>
-                <ul id="review-list" class="review-list">
-                    </ul>
+                <h3>오답노트 (1, 2교시 통합)</h3>
+                
+                <!-- 출제 오류 안내 문구 추가 -->
+                <div class="review-notice">
+                    혹시 출제에 오류가 있거나 해설이 필요한 경우 문제코드와 문제점을 <a href="mailto:sangjuneking@gmail.com">sangjuneking@gmail.com</a>으로 보내주세요!
+                </div>
+
+                <ul id="review-list" class="review-list"></ul>
             </div>
         </div>
+
+    </div>
 
     <script src="script.js"></script>
 </body>
